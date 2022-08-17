@@ -1,4 +1,4 @@
-import { iCategoriesRepository } from "../../repository/implementations/ICategoriesRepository";
+import { ICategoriesRepository } from "../../repository/implementations/ICategoriesRepository";
 
 
 interface IResquest {
@@ -8,9 +8,9 @@ interface IResquest {
 
 
 class CreateCategoryUseCase {
-    private categoriesRepository: iCategoriesRepository
+    private categoriesRepository: ICategoriesRepository
 
-    constructor(categoriesRepository: iCategoriesRepository){
+    constructor(categoriesRepository: ICategoriesRepository){
         this.categoriesRepository = categoriesRepository
     }
   execute({name,description}: IResquest): void {

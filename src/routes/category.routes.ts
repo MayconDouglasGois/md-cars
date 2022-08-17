@@ -6,9 +6,7 @@ import { uploadCategoryController } from "../modules/cards/useCase/uploadCategor
 
 
 const categoryRouter = Router();
-const upload = multer({
-  dest: "./tmp"
-})
+const upload = multer({ dest: './tmp' })
 
 
 
@@ -16,11 +14,12 @@ categoryRouter.post("/", (req: Request, res: Response) => {
   createCategoryController.handle(req, res);
 });
 
-categoryRouter.get("/", upload.single("file"), (req: Request, res: Response) => {
+categoryRouter.get("/", (req: Request, res: Response) => {
   listCategoryControler.handle(req, res);
 });
 
-categoryRouter.post("/upload", (req: Request, res: Response) => {
+categoryRouter.post("/upload",upload.single("file"),  (req: Request, res: Response) => {
   uploadCategoryController.handle(req, res);
+
 });
 export { categoryRouter };
